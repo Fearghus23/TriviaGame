@@ -1,47 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Trivia Game</title>
+  <meta charset="UTF-8">
+  <title>Triva Game</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="icon" type="image/gif" href="http://giphygifs.s3.amazonaws.com/media/nrXif9YExO9EI/giphy.gif" />
+  <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
 
 <body>
-  <audio controls loop>
-    <source src="./assets/images/Im ready.mp3">
-  </audio>
-  <div class="container">
-    <div class="header text-center clearfix">
-      <h1 class="text-muted">Spongebob trivia game!</h1>
-    </div>
-    <div class="jumbotron jumbotron-fluid">
+  <form name="quiz" method="post" name="buttons" id="quiz" onsubmit="return false">
+    <header id="head">
       <div class="container">
-        <div id="game">
-          <p id="remaining-time" class="lead">Remaining Time: <span id="timer"></span></p>
-          <p id="question" class="lead"></p>
-        </div>
-        <div id="results">
-        </div>
+        <h1>basic quiz. Topic: rice</h1>
       </div>
-      <div class="row">
-        <div id="choices" class="text-center">
-          <button id="start" class="btn btn-info btn-lg">Start Game</button>
-          <div id="options">
-          </div>
-        </div>
-      </div>
+    </header>
+    <div id="main-container" class="container">
+      <section class="main-section">
+        <p class="rules"> You have 50 seconds.</p>
+        <h2>
+          <button type="button" id="start-button">Start</button>
+        </h2>
+        <div id="show-number"></div>
+        <p class="question">1. when was rice first cultivated?
+        </p>
+        <ul class="answers">
+          <input type="radio" name="q1" value="a" id="q1a"><label>1000 years ago</label><br />
+          <input type="radio" name="q1" value="b" id="q1b"><label>12 years ago</label><br />
+          <input type="radio" name="q1" value="c" id="q1c"><label>1600 years ago</label><br />
+          <input type="radio" name="q1" value="correct" id="q1d"><label>14000 years ago<p class="true">true</p></label><br />
+        </ul>
+        <p class="question">2.which country is the biggest rice exporter?</p>
+        <ul class="answers">
+          <input type="radio" name="q2" value="a" id="q2a"><label>india</label><br />
+          <input type="radio" name="q2" value="correct" id="q2b"><label>china<p class="true">true</p></label><br />
+          <input type="radio" name="q2" value="c" id="q2c"><label>japan</label><br />
+          <input type="radio" name="q2" value="d" id="q2d"><label>USA</label><br />
+        </ul>
+        <p class="question">3. How many varieties of rice are there?
+        </p>
+        <ul class="answers">
+          <input type="radio" name="q3" value="correct" id="q3a"><label>40000<p class="true">true</p></label><br />
+          <input type="radio" name="q3" value="b" id="q3b"><label>1200</label><br />
+          <input type="radio" name="q3" value="c" id="q3c"><label>23</label><br />
+          <input type="radio" name="q3" value="d" id="q3d"><label>18</label><br />
+        </ul>
+        <p class="question">4. which country is know for having the best rice?</p>
+        <ul class="answers">
+          <input type="radio" name="q4" value="correct" id="q4a"><label>thailand<p class="true">true</p></label><br />
+          <input type="radio" name="q4" value="b" id="q4b"><label>vietnam</label><br />
+          <input type="radio" name="q4" value="c" id="q4c"><label>china</label><br />
+          <input type="radio" name="q4" value="d" id="q4d"><label>japan</label><br />
+        </ul>
+        <p class="question">4. what type of rice is most popular?</p>
+        <ul class="answers">
+          <input type="radio" name="q5" value="correct" id="q5a"><label>basmati<p class="true">true</p></label><br />
+          <input type="radio" name="q5" value="b" id="q5b"><label>jasmine</label><br />
+          <input type="radio" name="q5" value="c" id="q5c"><label>glutinous</label><br />
+          <input type="radio" name="q5" value="d" id="q5d"><label>brown</label><br />
+        </ul>
+
+        <button class="submit" onclick="return handleClick();" type="submit">Submit</button>
+  </form>
+  </section>
+  </div>
+  <footer id="footer" class="site-footer">
+    <div class="container">
+
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="./assets/javascript/app.js"></script>
+    &copy; Copyright 2019
+    </div>
+  </footer>
+  <!-- JavaScript File & jQuery Lib -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+  <script type="text/javascript" src="./assets/javascript/app.js">
+  </script>
 </body>
 
 </html>
